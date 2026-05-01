@@ -44,6 +44,8 @@ io.on('connection', (socket) => {
 const dist = path.join(__dirname, '..', 'dist');
 app.use(express.static(dist));
 app.get('/health', (_, res) => res.json({ ok:true }));
-app.get('/*', (_, res) => res.sendFile(path.join(dist, 'index.html')));
+app.use((req, res) => {
+  res.sendFile(path.join(dist, 'index.html'));
+});
 
 server.listen(PORT, () => console.log(`Dungeon Buddies listening on ${PORT}`));
