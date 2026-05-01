@@ -5,6 +5,9 @@
   "description": "Original three-player real-time dungeon card game web app.",
   "type": "module",
   "scripts": {
+  "start": "node server/index.js",
+  "build:client": "cd client && npm install && npm run build"
+}
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "server:dev": "nodemon server/index.js",
     "client:dev": "vite --host 0.0.0.0 --config client/vite.config.js",
